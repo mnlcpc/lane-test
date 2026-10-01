@@ -9,3 +9,7 @@ test("clamp keeps values inside", () => {
 test("clamp raises values below min", () => {
   assert.equal(clamp(-3, 0, 10), 0);
 });
+
+test("clamp lowers values above max", () => {
+  assert.equal(clamp(15, 0, 10), 10);
+});
