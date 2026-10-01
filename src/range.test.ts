@@ -25,3 +25,7 @@ test("lerp extrapolates when t is outside 0..1", () => {
   assert.equal(lerp(0, 10, 2), 20);
   assert.equal(lerp(0, 10, -0.5), -5);
 });
+
+test("lerp throws a RangeError when t is NaN", () => {
+  assert.throws(() => lerp(0, 10, NaN), RangeError);
+});
