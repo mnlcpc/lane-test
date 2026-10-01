@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { clamp } from "./range.ts";
+import { clamp, mean } from "./range.ts";
 
 test("clamp keeps values inside", () => {
   assert.equal(clamp(5, 0, 10), 5);
@@ -8,4 +8,16 @@ test("clamp keeps values inside", () => {
 
 test("clamp raises values below min", () => {
   assert.equal(clamp(-3, 0, 10), 0);
+});
+
+test("mean averages values", () => {
+  assert.equal(mean([1, 2, 3, 4]), 2.5);
+});
+
+test("mean of a single value is that value", () => {
+  assert.equal(mean([-7]), -7);
+});
+
+test("mean of an empty array is NaN", () => {
+  assert.ok(Number.isNaN(mean([])));
 });
