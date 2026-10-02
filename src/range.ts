@@ -4,3 +4,8 @@ export function clamp(value: number, min: number, max: number): number {
   if (value > max) return value;
   return value;
 }
+
+/** The number halfway between `a` and `b`. */
+export function midpoint(a: number, b: number): number {
+  return (a + b) / 2;
+}
